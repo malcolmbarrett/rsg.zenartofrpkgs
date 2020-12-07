@@ -131,10 +131,6 @@ code {
 h1, h2, h3 {
   font-weight: normal;
 }
-
-.dim {
-  color: #6C7B7F;
-}
 ```
 
 .pull-right[
@@ -149,23 +145,21 @@ Malcolm Barrett
 Slides: [bit.ly/rsg-zenrpkgs](http://bit.ly/rsg-zenrpkgs)
 
 ---
-class: center middle 
 
-`r xaringanExtra::text_poster(
-  "In R, the fundamental unit of 
-  shareable code 
-  is the package."
-)`
-
-.footnote.pull-right[— Hadley Wickham]
-
-
+# rstudio::conf(2020L)
 
 ---
 
-class: center, middle, hide-count
-background-image: url(img/oxherding_1.jpg)
-background-size: cover
+# rstudio::conf(2020L)
+
+## [My Organizaton's First R Package](https://my-org-first-pkg-2020.netlify.com/) 
+
+---
+
+# rstudio::conf(2020L)
+
+## ~~My Organizaton's First R Package~~
+## [R Markdown Driven Development](https://resources.rstudio.com/rstudio-conf-2020/rmarkdown-driven-development-emily-riederer) 
 
 ---
 
@@ -193,7 +187,7 @@ class: center middle
 ---
 
 class: center, middle, hide-count
-background-image: url(img/oxherding_2.jpg)
+background-image: url(img/oxherding_1.jpg)
 background-size: cover
 
 `r opaque_box("You already<br>structure your project")`
@@ -378,7 +372,7 @@ use_description()<br /><br />
 ---
 
 class: center, middle, hide-count
-background-image: url(img/oxherding_3.jpg)
+background-image: url(img/oxherding_2.jpg)
 background-size: cover
 
 `r opaque_box("You already<br>write R code")`
@@ -462,7 +456,7 @@ load_all() # Cmd/Ctrl + Shift + L<br /><br />
 
 
 class: center, middle, hide-count
-background-image: url(img/oxherding_4.jpg)
+background-image: url(img/oxherding_3.jpg)
 background-size: cover
 
 `r opaque_box("You already<br>declare your dependencies")`
@@ -569,7 +563,7 @@ plot_iris <- function() {<br />
 
 ---
 
-class: inverse, dim
+class: inverse
 
 ```
 Package: zenartofrpkgs
@@ -589,7 +583,7 @@ LazyData: true
 
 ---
 
-class: inverse, dim
+class: inverse
 
 ```
 Package: zenartofrpkgs
@@ -622,7 +616,7 @@ install_deps()
 ---
 
 class: center, middle, hide-count
-background-image: url(img/oxherding_5.jpg)
+background-image: url(img/oxherding_4.jpg)
 background-size: cover
 
 `r opaque_box("You already<br>test your code")`
@@ -692,6 +686,8 @@ Skipped:&nbsp;&nbsp;''''0''''<br />
 
 class: inverse, center, middle, hide-count
 
+# let's take a breath
+
 ---
 
 class: inverse
@@ -714,8 +710,161 @@ class: inverse
 
 ---
 
+class: center middle 
+
+`r xaringanExtra::text_poster(
+  "Each of you is perfect the way you are... 
+  and you can use a 
+  little improvement."
+)`
+
+.footnote.pull-right[— Shunryu Suzuki Roshi]
+
+---
+
+class: center middle 
+
+`r xaringanExtra::text_poster(
+  "Each package is perfect the way it is... 
+  and it can use a 
+  little improvement"
+)`
+
+.footnote.pull-right[— Hadley Wickham]
+
+---
+
 class: center, middle, hide-count
-background-image: url(img/oxherding_10.jpg)
+background-image: url(img/oxherding_5.jpg)
+background-size: cover
+
+`r opaque_box("You already<br>document your code")`
+
+---
+
+class: middle, inverse
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/svg/comment.svg")
+```
+
+---
+
+class: middle, inverse
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/svg/use_roxygen_rmd.svg")
+```
+
+---
+
+class: middle, inverse
+
+```
+#' Plot mean sepal length by species
+#'
+#' @param size the size of the points
+#'
+#' @return a ggplot
+#' @export
+#'
+#' @examples
+#'
+#' plot_iris()
+#'
+plot_iris <- function(size = 2) {
+  iris %>%
+    dplyr::group_by(Species) %>%
+    dplyr::summarize(mean_sepal_length = mean(Sepal.Length)) %>%
+    ggplot2::ggplot(ggplot2::aes(mean_sepal_length, Species)) +
+    ggplot2::geom_point(size = 2)
+}
+```
+
+---
+
+class: middle, inverse
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/svg/document.svg")
+```
+
+---
+
+class: center, middle, hide-count
+background-image: url(img/oxherding_6.jpg)
+background-size: cover
+
+`r opaque_box("You already<br>clean your data")`
+
+---
+
+class: middle, inverse
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/svg/use_data_raw.svg")
+```
+
+---
+
+class: middle, inverse
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/svg/use_data.svg")
+```
+
+---
+
+class: center, middle, hide-count
+background-image: url(img/oxherding_7.png)
+background-size: cover
+
+`r opaque_box("You already<br>write reports")`
+---
+
+class: middle, inverse
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/svg/use_vignette.svg")
+```
+
+
+---
+
+class: middle, inverse
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/svg/use_inst.svg")
+```
+
+---
+
+class: middle, inverse
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/svg/use_toplevel.svg")
+```
+
+---
+
+class: center, middle, hide-count
+background-image: url(img/oxherding_8.png)
+background-size: cover
+
+`r opaque_box("You already<br>share your code")`
+
+---
+
+class: middle, inverse
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/svg/install.svg")
+```
+
+---
+
+class: center, middle, hide-count
+background-image: url(img/oxherding_9.jpg)
 background-size: cover
 
 `r opaque_box("Coming home<br>to R packages")`
@@ -724,8 +873,25 @@ background-size: cover
 
 class: inverse, center, middle
 
-## [My Organizaton's First R Package](https://my-org-first-pkg-2020.netlify.com/) 
-# [R Packages, 2nd Edition: Whole Game](https://r-pkgs.org/whole-game.html)
+# [R Markdown Driven Development](https://emilyriederer.netlify.com/post/rmarkdown-driven-development/)
+
+---
+
+class: inverse, center, middle
+
+# [rrtools](https://github.com/benmarwick/rrtools)
+
+---
+
+class: inverse, center, middle
+
+# [golem](https://thinkr-open.github.io/golem/)
+
+---
+
+class: inverse, center, middle
+
+# [drake](https://books.ropensci.org/drake/projects.html#workflows-as-r-packages)
 
 ---
 
@@ -749,6 +915,21 @@ class: center middle
 )`
 
 .footnote.pull-right[— Chögyam Trungpa Rinpoche]
+
+---
+
+class: center, middle, hide-count
+background-image: url(img/oxherding_10.jpg)
+background-size: cover
+
+`r opaque_box("What<br>next?")`
+
+---
+
+
+class: inverse, center, middle
+
+# [R Packages, 2nd Edition: Whole Game](https://r-pkgs.org/whole-game.html)
 
 ---
 
