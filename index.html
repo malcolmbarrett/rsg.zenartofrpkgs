@@ -4,7 +4,8 @@
     <title>Zen and the Art of R Package Development</title>
     <meta charset="utf-8" />
     <meta name="author" content="Malcolm Barrett" />
-    <meta name="date" content="2020-03-02" />
+    <meta name="date" content="2020-12-06" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/animate.css-xaringan/animate.fade.css" rel="stylesheet" />
     <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
     <link href="libs/text-poster/text-poster.css" rel="stylesheet" />
@@ -83,37 +84,50 @@ del {
   color: #b9bfca;
 }
 
+code {
+  line-height: 120%
+}
+
 .h2 {
   font-family: 'Karla'
+}
+
+h1, h2, h3 {
+  font-weight: normal;
+}
+
+.dim {
+  color: #6C7B7F;
 }
 &lt;/style&gt;
 
 .pull-right[
-  # Zen and the Art of R Package development
+  # You're already ready:
+  ## Zen and the Art of R Package development
 ]
 
 Malcolm Barrett
 
 &lt;svg style="height:0.8em;top:.04em;position:relative;fill:#282D35;" viewBox="0 0 512 512"&gt;&lt;path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/&gt;&lt;/svg&gt; @malco_barrett
 
-Slides: [bit.ly/zenrpkgs](http://bit.ly/zenrpkgs)
+Slides: [bit.ly/rsg-zenrpkgs](http://bit.ly/rsg-zenrpkgs)
+
+---
+class: center middle 
+
+<div class="text-poster" style="width:100%;height:100%;padding:1em;">
+<div class="text-poster__text" data-text="In R, the fundamental unit of &#10;  shareable code &#10;  is the package."></div>
+</div>
+
+.footnote.pull-right[— Hadley Wickham]
+
+
 
 ---
 
-# rstudio::conf(2020L)
-
----
-
-# rstudio::conf(2020L)
-
-## [My Organizaton's First R Package](https://my-org-first-pkg-2020.netlify.com/) 
-
----
-
-# rstudio::conf(2020L)
-
-## ~~My Organizaton's First R Package~~
-## [R Markdown Driven Development](https://resources.rstudio.com/rstudio-conf-2020/rmarkdown-driven-development-emily-riederer) 
+class: center, middle, hide-count
+background-image: url(img/oxherding_1.jpg)
+background-size: cover
 
 ---
 
@@ -137,7 +151,7 @@ class: center middle
 ---
 
 class: center, middle, hide-count
-background-image: url(img/oxherding_1.jpg)
+background-image: url(img/oxherding_2.jpg)
 background-size: cover
 
 <div class="f1 bg-white-o90 pa6 shadow-3 h-75">
@@ -207,11 +221,37 @@ class: inverse, large
 
 ---
 
-class: middle, inverse
+class: inverse, large
 
-![](img/svg/create_package.svg)&lt;!-- --&gt;
+&lt;code&gt;
+&lt;em&gt;
+library(usethis)&lt;br /&gt;
+create_package("../zenartrpkgs")&lt;br /&gt;
+&lt;/em&gt;
+&lt;/code&gt;
 
 ---
+
+class: inverse, large
+
+&lt;code&gt;
+&lt;del&gt;
+library(usethis)&lt;br /&gt;
+create_package("../zenartrpkgs")&lt;br /&gt;&lt;br /&gt;
+&lt;/del&gt;
+
+&lt;span style='color:#a8cc8d'&gt;✓&lt;/span&gt; Creating &lt;span style='color:#6fbbed'&gt;'zenartrpkgs'&lt;/span&gt;&lt;br /&gt;
+&lt;span style='color:#a8cc8d'&gt;✓&lt;/span&gt; Creating &lt;span style='color:#6fbbed'&gt;'R/'&lt;/span&gt;&lt;br /&gt;
+&lt;span style='color:#a8cc8d'&gt;✓&lt;/span&gt; Writing &lt;span style='color:#6fbbed'&gt;'DESCRIPTION'&lt;/span&gt;&lt;br /&gt;
+&lt;span style='color:#a8cc8d'&gt;✓&lt;/span&gt; Writing &lt;span style='color:#6fbbed'&gt;'NAMESPACE'&lt;/span&gt;&lt;br /&gt;
+&lt;span style='color:#a8cc8d'&gt;✓&lt;/span&gt; Writing &lt;span style='color:#6fbbed'&gt;'zenartrpkgs.Rproj'&lt;/span&gt;&lt;br /&gt;
+&lt;span style='color:#a8cc8d'&gt;✓&lt;/span&gt; Adding &lt;span style='color:#6fbbed'&gt;'.Rproj.user'&lt;/span&gt; to &lt;span style='color:#6fbbed'&gt;'.gitignore'&lt;/span&gt;&lt;br /&gt;
+&lt;span style='color:#a8cc8d'&gt;✓&lt;/span&gt; Adding &lt;span style='color:#6fbbed'&gt;'^zenartrpkgs\\\\.Rproj'&lt;/span&gt; to &lt;span style='color:#6fbbed'&gt;'.Rbuildignore'&lt;/span&gt;&lt;br /&gt;
+&lt;span style='color:#a8cc8d'&gt;✓&lt;/span&gt; Setting active project to &lt;span style='color:#6fbbed'&gt;'zenartrpkgs'&lt;/span&gt;
+&lt;/code&gt;
+
+---
+
 
 class: inverse, large
 
@@ -228,7 +268,7 @@ class: inverse, large
 
 ---
 
-class: inverse, large
+class: inverse
 
 ```
 Package: zenartofrpkgs
@@ -248,14 +288,59 @@ LazyData: true
 
 ---
 
-class: middle, inverse
+class: inverse, large
 
-![](img/svg/create_project.svg)&lt;!-- --&gt;
+&lt;code&gt;
+&lt;em&gt;create_project("../zenartrpkgs")&lt;/em&gt;&lt;br /&gt;&lt;br /&gt;
+&lt;span style='color:#a8cc8d'&gt;✓&lt;/span&gt; Creating &lt;span style='color:#6fbbed'&gt;'zenartrpkgs'&lt;/span&gt;&lt;br /&gt;
+&lt;span style='color:#a8cc8d'&gt;✓&lt;/span&gt; Creating &lt;span style='color:#6fbbed'&gt;'R/'&lt;/span&gt;&lt;br /&gt;
+&lt;span style='color:#a8cc8d'&gt;✓&lt;/span&gt; Writing &lt;span style='color:#6fbbed'&gt;'zenartrpkgs.Rproj'&lt;/span&gt;&lt;br /&gt;
+&lt;span style='color:#a8cc8d'&gt;✓&lt;/span&gt; Adding &lt;span style='color:#6fbbed'&gt;'.Rproj.user'&lt;/span&gt; to &lt;span style='color:#6fbbed'&gt;'.gitignore'&lt;/span&gt;&lt;br /&gt;
+&lt;span style='color:#a8cc8d'&gt;✓&lt;/span&gt; Setting active project to &lt;span style='color:#6fbbed'&gt;'zenartrpkgs'&lt;/span&gt;
+&lt;/code&gt;
 
 ---
 
+class: inverse, large
+
+&lt;code&gt;
+&lt;del&gt;
+create_project("../zenartrpkgs")&lt;br /&gt;&lt;br /&gt;
+✓ Creating 'zenartrpkgs'&lt;br /&gt;
+✓ Creating 'R/'&lt;br /&gt;
+✓ Writing 'zenartrpkgs.Rproj'&lt;br /&gt;
+✓ Adding '.Rproj.user' to '.gitignore'&lt;br /&gt;
+✓ Setting active project to 'zenartrpkgs'&lt;br /&gt;&lt;br /&gt;
+&lt;/del&gt;
+&lt;em&gt;use_description()&lt;/em&gt;&lt;br /&gt;&lt;br /&gt;
+&lt;span style='color:#a8cc8d'&gt;✓&lt;/span&gt; Writing &lt;span style='color:#6fbbed'&gt;'DESCRIPTION'&lt;/span&gt;&lt;br /&gt;
+&lt;/code&gt;
+
+---
+
+class: inverse, large
+
+&lt;code&gt;
+&lt;del&gt;
+create_project("../zenartrpkgs")&lt;br /&gt;&lt;br /&gt;
+✓ Creating 'zenartrpkgs'&lt;br /&gt;
+✓ Creating 'R/'&lt;br /&gt;
+✓ Writing 'zenartrpkgs.Rproj'&lt;br /&gt;
+✓ Adding '.Rproj.user' to '.gitignore'&lt;br /&gt;
+✓ Setting active project to 'zenartrpkgs'&lt;br /&gt;&lt;br /&gt;
+&lt;/del&gt;
+&lt;del&gt;
+use_description()&lt;br /&gt;&lt;br /&gt;
+✓ Writing 'DESCRIPTION'&lt;br /&gt;&lt;br /&gt;
+&lt;/del&gt;
+&lt;em&gt;usethis:::is_package()&lt;/em&gt;&lt;br /&gt;
+[1] TRUE&lt;br /&gt;
+
+&lt;/code&gt;
+---
+
 class: center, middle, hide-count
-background-image: url(img/oxherding_2.jpg)
+background-image: url(img/oxherding_3.jpg)
 background-size: cover
 
 <div class="f1 bg-white-o90 pa6 shadow-3 h-75">
@@ -266,33 +351,84 @@ background-size: cover
 
 ---
 
-class: middle, inverse
+class: inverse, large
 
-![](img/svg/write_code.svg)&lt;!-- --&gt;
+&lt;code&gt;
+iris %&gt;%&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;group_by(Species) %&gt;%&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;summarize(mean_sepal_length = mean(Sepal.Length))&lt;br /&gt;
+
+&lt;del&gt;&amp;#35; A tibble: 3 x 2&lt;/del&gt;&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;Species&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;mean_sepal_length&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&lt;del&gt;&lt;span style="font-style:italic"&gt;&amp;lt;fct&amp;gt;&lt;/span&gt;&lt;/del&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;del&gt;&lt;span style="font-style:italic"&gt;&amp;lt;dbl&amp;gt;&lt;/span&gt;&lt;/del&gt;&lt;br /&gt;
+1 setosa&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;5.01&lt;br /&gt;
+2 versicolor&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;5.94&lt;br /&gt;
+3 virginica&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;6.59&lt;br /&gt;
+&lt;/code&gt;
 
 ---
 
-class: middle, inverse
+class: inverse, large
 
-![](img/svg/use_r.svg)&lt;!-- --&gt;
-
----
-
-class: middle, inverse
-
-![](img/svg/write_functions.svg)&lt;!-- --&gt;
+&lt;code&gt;
+use_r("summarize_data")&lt;br /&gt;&lt;br /&gt;
+&lt;span style='color:#e88388'&gt;●&lt;/span&gt; Modify &lt;span style='color:#6fbbed'&gt;'summarize_data.R'&lt;/span&gt;&lt;br /&gt;
+&lt;/code&gt;
 
 ---
 
-class: middle, inverse
+class: inverse, large
 
-![](img/svg/load_all.svg)&lt;!-- --&gt;
+&lt;code&gt;
+&lt;del&gt;use_r("summarize_data")&lt;br /&gt;&lt;br /&gt;
+● Modify 'summarize_data.R'&lt;br /&gt;&lt;br /&gt;&lt;/del&gt;
+&lt;/code&gt;
+
+&lt;code&gt;
+&lt;del&gt;&amp;#35; in 'R/summarize_data.R'&lt;/del&gt;&lt;br /&gt;
+&lt;em&gt;summarize_iris &lt;- function() {&lt;/em&gt;&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;iris %&gt;%&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;group_by(Species) %&gt;%&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;summarize(&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;mean_sepal_length = mean(Sepal.Length)&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;)&lt;br /&gt;
+&lt;em&gt;}&lt;/em&gt;
+&lt;/code&gt;
+
+---
+
+class: inverse, large
+
+&lt;code&gt;
+library(devtools)&lt;br /&gt;
+&lt;em&gt;load_all()&lt;/em&gt; &lt;del&gt;# Cmd/Ctrl + Shift + L&lt;/del&gt;&lt;br /&gt;&lt;br /&gt;
+&lt;span style="font-weight:bold"&gt;Loading zenartrpkgs&lt;/span&gt;
+
+---
+
+class: inverse, large
+
+&lt;code&gt;
+&lt;del&gt;
+library(devtools)&lt;br /&gt;
+load_all() # Cmd/Ctrl + Shift + L&lt;br /&gt;&lt;br /&gt;
+&lt;span style="font-weight:bold"&gt;Loading zenartrpkgs&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;
+&lt;/del&gt;
+&lt;em&gt;summarize_iris()&lt;/em&gt;&lt;br /&gt;
+
+&lt;del&gt;&amp;#35; A tibble: 3 x 2&lt;/del&gt;&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;Species&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;mean_sepal_length&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&lt;del&gt;&lt;span style="font-style:italic"&gt;&amp;lt;fct&amp;gt;&lt;/span&gt;&lt;/del&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;del&gt;&lt;span style="font-style:italic"&gt;&amp;lt;dbl&amp;gt;&lt;/span&gt;&lt;/del&gt;&lt;br /&gt;
+1 setosa&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;5.01&lt;br /&gt;
+2 versicolor&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;5.94&lt;br /&gt;
+3 virginica&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;6.59&lt;br /&gt;
+&lt;/code&gt;
 
 ---
 
 
 class: center, middle, hide-count
-background-image: url(img/oxherding_3.jpg)
+background-image: url(img/oxherding_4.jpg)
 background-size: cover
 
 <div class="f1 bg-white-o90 pa6 shadow-3 h-75">
@@ -303,25 +439,107 @@ background-size: cover
 
 ---
 
-class: middle, inverse
+class: inverse, large
 
-![](img/svg/write_library.svg)&lt;!-- --&gt;
-
----
-
-class: middle, inverse
-
-![](img/svg/use_package.svg)&lt;!-- --&gt;
-
----
-
-class: middle, inverse
-
-![](img/svg/use_package_code.svg)&lt;!-- --&gt;
+&lt;code&gt;
+library(dplyr)&lt;br /&gt;
+library(ggplot2)&lt;br /&gt;&lt;br /&gt;
+plot_iris &lt;- function() {&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;iris %&gt;%&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;group_by(Species) %&gt;%&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;summarize(&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;mean_sepal_length = mean(Sepal.Length)&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;) %&gt;%&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ggplot(aes(mean_sepal_length, Species)) +&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;geom_point()&lt;br /&gt;
+}
+&lt;/code&gt;
 
 ---
 
 class: inverse, large
+
+&lt;code&gt;
+&lt;del&gt;
+library(&lt;em&gt;dplyr&lt;/em&gt;)&lt;br /&gt;
+library(&lt;em&gt;ggplot2&lt;/em&gt;)&lt;br /&gt;&lt;br /&gt;
+plot_iris &lt;- function() {&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;iris %&gt;%&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;group_by(Species) %&gt;%&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;summarize(&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;mean_sepal_length = mean(Sepal.Length)&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;) %&gt;%&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ggplot(aes(mean_sepal_length, Species)) +&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;geom_point()&lt;br /&gt;
+}
+&lt;/del&gt;
+&lt;/code&gt;
+
+---
+
+class: inverse, large
+
+&lt;code&gt;
+&lt;del&gt;# use_pipe()&lt;br /&gt;&lt;/del&gt;
+&lt;em&gt;use_package("dplyr")&lt;/em&gt;&lt;br /&gt;&lt;br /&gt;
+&lt;span style='color:#a8cc8d'&gt;✓&lt;/span&gt; Adding &lt;span style='color:#6fbbed'&gt;'dplyr'&lt;/span&gt; to &lt;span style='color:#a8cc8d'&gt;Imports&lt;/span&gt; field in DESCRIPTION&lt;br /&gt;
+&lt;span style='color:#e88388'&gt;●&lt;/span&gt; Refer to functions with &lt;span style='color:#6C7B7F'&gt;&amp;#96;dplyr::fun()&amp;#96;&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;
+&lt;/code&gt;
+---
+
+class: inverse, large
+
+&lt;code&gt;
+&lt;del&gt;# use_pipe()&lt;br /&gt;
+use_package("dplyr")&lt;br /&gt;&lt;br /&gt;
+✓ Adding 'dplyr' to Imports field in DESCRIPTION&lt;br /&gt;
+● Refer to functions with &amp;#96;dplyr::fun()&amp;#96; &lt;/del&gt;&lt;br /&gt;&lt;br /&gt;
+&lt;em&gt;use_package("ggplot2")&lt;/em&gt;&lt;br /&gt;&lt;br /&gt;
+&lt;span style='color:#a8cc8d'&gt;✓&lt;/span&gt; Adding &lt;span style='color:#6fbbed'&gt;'ggplot2'&lt;/span&gt; to &lt;span style='color:#a8cc8d'&gt;Imports&lt;/span&gt; field in DESCRIPTION&lt;br /&gt;
+&lt;span style='color:#e88388'&gt;●&lt;/span&gt; Refer to functions with &lt;span style='color:#6C7B7F'&gt;&amp;#96;ggplot2::fun()&amp;#96;&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;
+&lt;/code&gt;
+
+---
+class: inverse, large
+
+&lt;code&gt;
+&lt;del&gt;
+plot_iris &lt;- function() {&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;iris %&gt;%&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;group_by(Species) %&gt;%&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;summarize(&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;mean_sepal_length = mean(Sepal.Length)&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;) %&gt;%&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ggplot(aes(mean_sepal_length, Species)) +&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;geom_point()&lt;br /&gt;
+}
+&lt;/del&gt;
+&lt;/code&gt;
+
+
+---
+
+class: inverse, large
+
+&lt;code&gt;
+&lt;del&gt;
+plot_iris &lt;- function() {&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;iris %&gt;%&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;em&gt;dplyr::&lt;/em&gt;group_by(Species) %&gt;%&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;em&gt;dplyr::&lt;/em&gt;summarize(&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;mean_sepal_length = mean(Sepal.Length)&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;) %&gt;%&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;em&gt;ggplot2::&lt;/em&gt;ggplot(&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;em&gt;ggplot2::&lt;/em&gt;aes(mean_sepal_length, Species)&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;) +&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;em&gt;ggplot2::&lt;/em&gt;geom_point()&lt;br /&gt;
+}
+&lt;/del&gt;
+&lt;/code&gt;
+
+---
+
+class: inverse, dim
 
 ```
 Package: zenartofrpkgs
@@ -341,7 +559,7 @@ LazyData: true
 
 ---
 
-class: inverse, large
+class: inverse, dim
 
 ```
 Package: zenartofrpkgs
@@ -364,14 +582,17 @@ LazyData: true
 
 ---
 
-class: middle, inverse
+class: inverse, large
 
-![](img/svg/use_package_install.svg)&lt;!-- --&gt;
+&lt;code&gt;
+&lt;del&gt;# install all dependencies in DESCRIPTION&lt;/del&gt;&lt;br /&gt;
+install_deps()
+&lt;/code&gt;
 
 ---
 
 class: center, middle, hide-count
-background-image: url(img/oxherding_4.jpg)
+background-image: url(img/oxherding_5.jpg)
 background-size: cover
 
 <div class="f1 bg-white-o90 pa6 shadow-3 h-75">
@@ -382,21 +603,68 @@ background-size: cover
 
 ---
 
-class: middle, inverse
+class: inverse, large
 
-![](img/svg/fiddle.svg)&lt;!-- --&gt;
+&lt;code&gt;
+clean_data(iris)&lt;br /&gt;&lt;br /&gt;
+&lt;span style="font-weight:bold;color:#A71E00FF"&gt;Error: Something went wrong&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;
+&lt;/code&gt;
 
 ---
 
-class: middle, inverse
+class: inverse, large
 
-![](img/svg/use_test.svg)&lt;!-- --&gt;
+&lt;code&gt;
+&lt;del&gt;
+clean_data(iris)&lt;br /&gt;&lt;br /&gt;
+&lt;span style="font-weight:bold"&gt;Error: Something went wrong&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;
+&lt;/del&gt;
+emo::ji("thinking")&lt;br /&gt;&lt;br /&gt;
+🤔 
+&lt;/code&gt;
+
+---
+
+class: inverse, large
+
+&lt;code&gt;
+clean_data(&lt;em&gt;iris[, -5]&lt;/em&gt;)&lt;br /&gt;&lt;br /&gt;
+&lt;span style='color:#a8cc8d'&gt;✓&lt;/span&gt; Cleaned &lt;span style='color:#6C7B7F'&gt;&amp;#96;iris&amp;#96;&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;
+emo::ji("thinking")&lt;br /&gt;&lt;br /&gt;
+🤔 &lt;br /&gt;&lt;br /&gt;
+&lt;/code&gt;
+---
+
+class: inverse, large
+
+&lt;code&gt;
+use_test("clean_data")&lt;br /&gt;&lt;br /&gt; 
+&lt;span style='color:#a8cc8d'&gt;✓&lt;/span&gt; Adding &lt;span style='color:#6fbbed'&gt;'testthat'&lt;/span&gt; to &lt;span style='color:#a8cc8d'&gt;Imports&lt;/span&gt; field in DESCRIPTION&lt;br /&gt;
+&lt;span style='color:#a8cc8d'&gt;✓&lt;/span&gt; Creating &lt;span style='color:#6fbbed'&gt;'tests/testthat/'&lt;/span&gt;&lt;br /&gt;
+&lt;span style='color:#a8cc8d'&gt;✓&lt;/span&gt; Writing &lt;span style='color:#6fbbed'&gt;'tests/testthat.R'&lt;/span&gt;&lt;br /&gt;
+&lt;span style='color:#e88388'&gt;●&lt;/span&gt; Call &lt;span style='color:#6C7B7F'&gt;&amp;#96;use_test()&amp;#96;&lt;/span&gt; to initialize a basic test file and open it for editing.&lt;br /&gt;
+&lt;span style='color:#a8cc8d'&gt;✓&lt;/span&gt; Increasing &lt;span style='color:#6fbbed'&gt;'testthat'&lt;/span&gt; version to &lt;span style='color:#6fbbed'&gt;'&gt;= 2.1.0'&lt;/span&gt;  in DESCRIPTION&lt;br /&gt;
+&lt;span style='color:#a8cc8d'&gt;✓&lt;/span&gt; Writing &lt;span style='color:#6fbbed'&gt;'tests/testthat/test-clean_data.R'&lt;/span&gt;&lt;br /&gt;
+&lt;/code&gt;
+
+---
+
+class: inverse, large
+
+&lt;code&gt;
+&lt;em&gt;test()&lt;/em&gt; &lt;del&gt;# Cmd/Ctrl + Shift + T&lt;/del&gt;&lt;br /&gt;&lt;br /&gt; 
+&lt;span style="font-weight:bold"&gt;Loading zenartrpkgs&lt;/span&gt;&lt;br /&gt;
+&lt;span style="font-weight:bold"&gt;Testing zenartrpkgs&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt; 
+── &lt;span style="font-weight:bold"&gt;Results&lt;/span&gt; ──────────────────&lt;br /&gt; 
+OK:&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style='color:#a8cc8d'&gt;1&lt;/span&gt;&lt;br /&gt; 
+Failed:&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style='color:#a8cc8d'&gt;0&lt;/span&gt;&lt;br /&gt; 
+Warnings:&amp;nbsp;&lt;span style='color:#a8cc8d'&gt;0&lt;/span&gt;&lt;br /&gt; 
+Skipped:&amp;nbsp;&amp;nbsp;&lt;span style='color:#a8cc8d'&gt;0&lt;/span&gt;&lt;br /&gt; 
+&lt;/code&gt;
 
 ---
 
 class: inverse, center, middle, hide-count
-
-# let's take a breath
 
 ---
 
@@ -420,155 +688,8 @@ class: inverse
 
 ---
 
-class: center middle 
-
-<div class="text-poster" style="width:100%;height:100%;padding:1em;">
-<div class="text-poster__text" data-text="Each of you is perfect the way you are... &#10;  and you can use a &#10;  little improvement."></div>
-</div>
-
-.footnote.pull-right[— Shunryu Suzuki Roshi]
-
----
-
-class: center middle 
-
-<div class="text-poster" style="width:100%;height:100%;padding:1em;">
-<div class="text-poster__text" data-text="Each package is perfect the way it is... &#10;  and it can use a &#10;  little improvement"></div>
-</div>
-
-.footnote.pull-right[— Hadley Wickham]
-
----
-
 class: center, middle, hide-count
-background-image: url(img/oxherding_5.jpg)
-background-size: cover
-
-<div class="f1 bg-white-o90 pa6 shadow-3 h-75">
-<h1>
-<em>You already&lt;br&gt;document your code</em>
-</h1>
-</div>
-
----
-
-class: middle, inverse
-
-![](img/svg/comment.svg)&lt;!-- --&gt;
-
----
-
-class: middle, inverse
-
-![](img/svg/use_roxygen_rmd.svg)&lt;!-- --&gt;
-
----
-
-class: middle, inverse
-
-```
-#' Plot mean sepal length by species
-#'
-#' @param size the size of the points
-#'
-#' @return a ggplot
-#' @export
-#'
-#' @examples
-#'
-#' plot_iris()
-#'
-plot_iris &lt;- function(size = 2) {
-  iris %&gt;%
-    dplyr::group_by(Species) %&gt;%
-    dplyr::summarize(mean_sepal_length = mean(Sepal.Length)) %&gt;%
-    ggplot2::ggplot(ggplot2::aes(mean_sepal_length, Species)) +
-    ggplot2::geom_point(size = 2)
-}
-```
-
----
-
-class: middle, inverse
-
-![](img/svg/document.svg)&lt;!-- --&gt;
-
----
-
-class: center, middle, hide-count
-background-image: url(img/oxherding_6.jpg)
-background-size: cover
-
-<div class="f1 bg-white-o90 pa6 shadow-3 h-75">
-<h1>
-<em>You already&lt;br&gt;clean your data</em>
-</h1>
-</div>
-
----
-
-class: middle, inverse
-
-![](img/svg/use_data_raw.svg)&lt;!-- --&gt;
-
----
-
-class: middle, inverse
-
-![](img/svg/use_data.svg)&lt;!-- --&gt;
-
----
-
-class: center, middle, hide-count
-background-image: url(img/oxherding_7.png)
-background-size: cover
-
-<div class="f1 bg-white-o90 pa6 shadow-3 h-75">
-<h1>
-<em>You already&lt;br&gt;write reports</em>
-</h1>
-</div>
----
-
-class: middle, inverse
-
-![](img/svg/use_vignette.svg)&lt;!-- --&gt;
-
-
----
-
-class: middle, inverse
-
-![](img/svg/use_inst.svg)&lt;!-- --&gt;
-
----
-
-class: middle, inverse
-
-![](img/svg/use_toplevel.svg)&lt;!-- --&gt;
-
----
-
-class: center, middle, hide-count
-background-image: url(img/oxherding_8.png)
-background-size: cover
-
-<div class="f1 bg-white-o90 pa6 shadow-3 h-75">
-<h1>
-<em>You already&lt;br&gt;share your code</em>
-</h1>
-</div>
-
----
-
-class: middle, inverse
-
-![](img/svg/install.svg)&lt;!-- --&gt;
-
----
-
-class: center, middle, hide-count
-background-image: url(img/oxherding_9.jpg)
+background-image: url(img/oxherding_10.jpg)
 background-size: cover
 
 <div class="f1 bg-white-o90 pa6 shadow-3 h-75">
@@ -581,25 +702,8 @@ background-size: cover
 
 class: inverse, center, middle
 
-# [R Markdown Driven Development](https://emilyriederer.netlify.com/post/rmarkdown-driven-development/)
-
----
-
-class: inverse, center, middle
-
-# [rrtools](https://github.com/benmarwick/rrtools)
-
----
-
-class: inverse, center, middle
-
-# [golem](https://thinkr-open.github.io/golem/)
-
----
-
-class: inverse, center, middle
-
-# [drake](https://books.ropensci.org/drake/projects.html#workflows-as-r-packages)
+## [My Organizaton's First R Package](https://my-org-first-pkg-2020.netlify.com/) 
+# [R Packages, 2nd Edition: Whole Game](https://r-pkgs.org/whole-game.html)
 
 ---
 
@@ -623,28 +727,29 @@ class: center middle
 
 ---
 
-class: center, middle, hide-count
-background-image: url(img/oxherding_10.jpg)
-background-size: cover
+class: inverse
 
-<div class="f1 bg-white-o90 pa6 shadow-3 h-75">
-<h1>
-<em>What&lt;br&gt;next?</em>
-</h1>
-</div>
+```
+*&gt; message
+[1] "thanks for coming!"
+*&gt; name
+[1] "Malcolm Barrett"
+*&gt; twitter
+[1] "@malco_barrett"
+*&gt; github
+[1] "@malcolmbarrett"
+*&gt; website
+[1] "https://malco.io/"
+*&gt; r_courses
+[1] "https://malco.io/training"
+*&gt; slides_made_with
+[1] "xaringan"
+*&gt; also
+[1] "xanringanthemer" "xaringanExtra"     
+*&gt; art_by
+[1] "Kaz Tanahashi"     "Jikihara Gyokusei"
+```
 
----
-
-
-class: inverse, center, middle
-
-# [R Packages, 2nd Edition: Whole Game](https://r-pkgs.org/whole-game.html)
-
----
-
-class: middle, inverse
-
-![](img/svg/goodbye.svg)&lt;!-- --&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
@@ -694,6 +799,32 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
 // adds .remark-code-has-line-highlighted class to <pre> parent elements
 // of code chunks containing highlighted lines with class .remark-code-line-highlighted
 (function(d) {
@@ -711,17 +842,6 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   }
   preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
 })(document);</script>
-
-<script>
-(function() {
-  var links = document.getElementsByTagName('a');
-  for (var i = 0; i < links.length; i++) {
-    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
-      links[i].target = '_blank';
-    }
-  }
-})();
-</script>
 
 <script>
 slideshow._releaseMath = function(el) {
